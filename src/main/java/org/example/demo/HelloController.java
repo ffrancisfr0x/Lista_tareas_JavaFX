@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 public class HelloController {
     @FXML private TextField campoTarea;
     @FXML private ListView<String> listaTareas;
+    @FXML private Label mensajeError;
 
     private final ObservableList<String> tareas = FXCollections.observableArrayList();
 
@@ -19,10 +20,18 @@ public class HelloController {
     }
 
     @FXML private void anadirTarea() {
-        String texto = campoTarea.getText();
+        String texto = campoTarea.getText().trim();
+        if (texto.isEmpty()) {
+            mensajeError.setText("Por favor, introduce una tarea.");
+            return;
+        }
+
         tareas.add(texto);
+
         campoTarea.clear();
         campoTarea.requestFocus();
+        mensajeError.setText("");
+
         System.out.println("Tareas guardadas: " + tareas);
     }
 }
