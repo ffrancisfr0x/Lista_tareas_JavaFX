@@ -31,7 +31,5 @@ public class HelloController {
         campoTarea.clear();
         campoTarea.requestFocus();
         mensajeError.setText("");
-
-        System.out.println("Tareas guardadas: " + tareas);
     }
 }
