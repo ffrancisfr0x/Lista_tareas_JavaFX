@@ -22,6 +22,7 @@ public class HelloController {
         String texto = campoTarea.getText();
         tareas.add(texto);
         campoTarea.clear();
+        campoTarea.requestFocus();
         System.out.println("Tareas guardadas: " + tareas);
     }
 }
